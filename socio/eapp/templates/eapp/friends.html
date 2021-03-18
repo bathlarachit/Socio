@@ -1,0 +1,79 @@
+{% extends 'eapp/base.html' %}
+{% load static %}
+{% block body %}
+
+<style media="screen">
+#card{
+  width: 20px;
+  height: auto;
+}
+.card {
+/* Add shadows to create the "card" effect */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+padding: 2px 16px;
+}
+</style>
+<style media="screen">
+  h3:hover{
+    background-color: #CE4A7EFF;
+    border-radius: 10px;
+  }
+</style>
+<h2 class="text-center text-muted">Friends list</h2>
+<br>
+<div class="messages-box">
+  <div class="list-group rounded-0">
+
+  {% for i in list %}
+    <a href="/chat/{{i.fri1.id}}/" class="list-group-item list-group-item-action list-group-item-light rounded-0">
+      <div class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="rounded-circle">
+        <div class="media-body ml-4">
+          <div class="d-flex align-items-center justify-content-between mb-1">
+            <h6 class="mb-0">{{i.fri1.first_name}} {{i.fri1.last_name}}</h6>  <small class="small font-weight-bold">{% now "jS \o\f F" %}</small>
+          </div>
+          <p class="font-italic text-muted mb-0 text-small">{{i.fri1.email}}.</p>
+        </div>
+
+      </div>
+
+    </a>
+    <div class="row">
+      <div class="col-12">
+        <a href="/chat/{{i.fri1.id}}">
+        <button type="button"  href="#" class="btn btn-block btn-outline-info" name="button"><i  style="font-size: 1.5rem;" class="fas fa-comments">  </i></button>
+</a>
+      </div>
+
+    </div>
+    <br>
+  {% endfor %}
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<br>
+<hr>
+<a href="{% url 'makeFriends' %}" class="btn btn-block btn-outline-info">Search Friends</a>
+<br>
+<hr>
+
+
+{% endblock %}

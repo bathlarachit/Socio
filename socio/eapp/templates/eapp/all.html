@@ -1,0 +1,17 @@
+{% extends 'eapp/base.html' %}
+{% block body %}
+<style media="screen">
+
+</style>
+<br>
+<h3 class="text-center">ADD Friends</h3>
+<br>
+<div class="container-fluid">
+    <form class="d-flex row" method="POST">
+      <input class="form-control me-2 col-lg-8 col-12" name="search" type="search" placeholder="Search" aria-label="Search" required>
+
+      <button class="btn btn-outline-info   col-lg-3 col-12"  type="submit">Search</button>
+      {% csrf_token %}
+    </form>
+  </div>
+{% endblock %}

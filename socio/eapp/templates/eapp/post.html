@@ -1,0 +1,18 @@
+{% extends 'eapp/base.html' %}
+{% load static  %}
+{% load bootstrap3 %}
+<style>
+
+</style>
+{% block body %}
+<h3>Post something Today</h3>
+<img style="width:80%;height:auto; align:center;"src="{% static 'images/post.jpg' %}" alt="">
+<hr>
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+     {% bootstrap_form form %}
+     <input type="submit" class="btn btn-outline-info btn-block" value="Post">
+</form>
+<hr>
+
+{% endblock %}

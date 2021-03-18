@@ -1,0 +1,39 @@
+{% extends 'eapp/base.html' %}
+
+{% block body %}
+<br>
+{% if qs %}
+<div class="messages-box">
+  <div class="list-group rounded-0">
+
+{% for j in qs %}
+    <a href="/chat/{{i.fri1.id}}/" class="list-group-item list-group-item-action list-group-item-light rounded-0">
+      <div class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="rounded-circle">
+        <div class="media-body ml-4">
+          <div class="d-flex align-items-center justify-content-between mb-1">
+            <h6 class="mb-0">{{j.first_name}} {{j.last_name}}</h6>  <small class="small font-weight-bold">{% now "jS \o\f F" %}</small>
+          </div>
+          <p class="font-italic text-muted mb-0 text-small">{{j.email}}.</p>
+
+        </div>
+
+      </div>
+
+    </a>
+    <div class="row">
+      <div class="col-12">
+        <a href="/addfriend/{{j.id}}/" class="col-4 btn btn-outline-info"> Add Friend</a>
+      </div>
+
+    </div>
+
+{% endfor %}
+{% else %}
+<h3>Oop we don't have similar user : '{{name}}' register yet,try with another name</h3>
+<br>
+<a href="{% url 'makeFriends' %}" class="btn btn-outline-info btn-block" style="border-radius:15px; margin-top:20px;">Search Anoter User</a>
+{% endif %}
+
+  </div>
+</div>
+{% endblock %}
